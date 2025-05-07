@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Flash F3 Board",
+      "request": "launch",
+      "type": "lldb",
+      "program": "true", // won't be used
+      "preLaunchTask": "Flash F3 Discovery",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}
