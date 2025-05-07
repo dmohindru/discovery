@@ -8,6 +8,23 @@
       "program": "true", // won't be used
       "preLaunchTask": "Flash F3 Discovery",
       "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Debug STM32F3 (OpenOCD)",
+      "type": "cortex-debug",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "servertype": "openocd",
+      "gdbPath": "gdb-multiarch",
+      "preLaunchTask": "Cargo Build (debug) 05-led-roulette",
+      "runToEntryPoint": "main",
+      "executable": "${workspaceRoot}/../../target/thumbv7em-none-eabihf/debug/led-roulette",
+      "device": "STM32F303VCT6",
+      "configFiles": ["interface/stlink.cfg", "target/stm32f3x.cfg"],
+      "searchDir": ["/home/dhruv/opt/pico/openocd/tcl"],
+      "openOCDLaunchCommands": ["adapter speed 5000"],
+      "svdFile": "${workspaceRoot}/../STM32F303.svd",
+      "postRestartCommands": ["break main", "continue"]
     }
   ]
 }
