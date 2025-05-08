@@ -2,9 +2,11 @@
 set -e
 
 # Build and extract ELF path
-ELF=$(cargo build --target thumbv7em-none-eabihf --message-format=json 2>/dev/null \
+ELF=$(cargo build --release --target thumbv7em-none-eabihf --message-format=json 2>/dev/null \
   | jq -r 'select(.executable != null) | .executable' \
   | head -n 1)
+
+echo "Flashing: $ELF"
 
 # Flash using OpenOCD
 openocd -s "$HOME/opt/pico/openocd/tcl" \

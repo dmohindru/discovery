@@ -19,11 +19,12 @@
       "preLaunchTask": "Cargo Build (debug) 05-led-roulette",
       "runToEntryPoint": "main",
       "executable": "${workspaceRoot}/../../target/thumbv7em-none-eabihf/debug/led-roulette",
-      "device": "STM32F303VCT6",
+      "device": "STM32F303VC",
       "configFiles": ["interface/stlink.cfg", "target/stm32f3x.cfg"],
       "searchDir": ["/home/dhruv/opt/pico/openocd/tcl"],
       "openOCDLaunchCommands": ["adapter speed 5000"],
-      "svdFile": "${workspaceRoot}/../STM32F303.svd",
+      "svdFile": "${workspaceRoot}/STM32F303.svd",
+      "liveWatch": true,
       "postRestartCommands": ["break main", "continue"]
     }
   ]
