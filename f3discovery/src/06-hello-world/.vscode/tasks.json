@@ -1,0 +1,49 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Cargo Build (debug) 05-led-roulette",
+      "type": "process",
+      "command": "cargo",
+      "args": ["build", "--target", "thumbv7em-none-eabihf"],
+      "problemMatcher": ["$rustc"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Launch OpenOCD",
+      "type": "shell",
+      "command": "../../scripts/start_openocd.sh",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "detail": "Launches OpenOCD using the start_openocd.sh script."
+    },
+    {
+      "label": "Close OpenOCD",
+      "type": "shell",
+      "command": "pkill openocd",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "problemMatcher": [],
+      "detail": "Closes OpenOCD by killing its process."
+    },
+    {
+      "label": "Flash F3 Discovery",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/flash.sh",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "problemMatcher": [],
+      "detail": "Task to flash the F3 Discovery board using OpenOCD and a custom flash script."
+    }
+  ]
+}
