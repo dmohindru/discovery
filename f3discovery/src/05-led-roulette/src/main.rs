@@ -8,7 +8,7 @@ use aux5::{entry, Delay, DelayMs, LedArray, OutputSwitch};
 fn main() -> ! {
     let (mut delay, mut leds): (Delay, LedArray) = aux5::init();
 
-    let ms = 500_u16;
+    let ms = 100_u16;
     loop {
         for curr in 0..8 {
             let next = (curr + 1) % 8;
