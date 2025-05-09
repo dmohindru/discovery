@@ -13,3 +13,8 @@ openocd -s "$HOME/opt/pico/openocd/tcl" \
   -f interface/stlink.cfg \
   -f target/stm32f3x.cfg \
   -c "program $ELF verify reset exit"
+
+echo -e "\n🎉 Flashing successful!"
+
+# Wait for user input before exiting (helps keep terminal/console open)
+read -p "🔧 Press ENTER to exit..."
