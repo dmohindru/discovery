@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Cargo Build (debug) 05-led-roulette",
+      "label": "Cargo Build (debug)",
       "type": "process",
       "command": "cargo",
       "args": ["build", "--target", "thumbv7em-none-eabihf"],
