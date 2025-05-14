@@ -18,7 +18,7 @@
       "gdbPath": "gdb-multiarch",
       "preLaunchTask": "Cargo Build (debug)",
       "runToEntryPoint": "main",
-      "executable": "${workspaceRoot}/../../target/thumbv7em-none-eabihf/debug/registers",
+      "executable": "${workspaceRoot}/../../target/thumbv7em-none-eabihf/debug/leds-again",
       "device": "STM32F303VC",
       "configFiles": ["interface/stlink.cfg", "target/stm32f3x.cfg"],
       "searchDir": ["/home/dhruv/opt/pico/openocd/tcl"],
@@ -29,8 +29,7 @@
         "break main",
         "break DefaultHandler",
         "break HardFault",
-        "continue",
-        "step"
+        "continue"
       ]
     }
   ]
