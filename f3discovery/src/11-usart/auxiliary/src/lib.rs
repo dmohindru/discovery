@@ -16,6 +16,7 @@ use stm32f3_discovery::stm32f3xx_hal::{
     pac::{self, USART1},
     prelude::*,
     serial::Serial,
+    time::rate::Megahertz,
 };
 
 pub fn init() -> (&'static mut usart1::RegisterBlock, MonoTimer, ITM) {
@@ -25,7 +26,7 @@ pub fn init() -> (&'static mut usart1::RegisterBlock, MonoTimer, ITM) {
     let mut flash = dp.FLASH.constrain();
     let mut rcc = dp.RCC.constrain();
 
-    let clocks = rcc.cfgr.freeze(&mut flash.acr);
+    let clocks = rcc.cfgr.use_hse(Megahertz(8)).freeze(&mut flash.acr);
 
     let (tx, rx) = match () {
         #[cfg(feature = "adapter")]

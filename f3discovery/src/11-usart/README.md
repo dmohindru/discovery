@@ -29,7 +29,7 @@ You can move on to the [next section](send-a-single-byte.html).
 If you are using an external USB <-> Serial module then you will **need** to
 enable the `adapter` feature of the `aux11` crate dependency in `Cargo.toml`.
 
-``` toml
+```toml
 [dependencies.aux11]
 path = "auxiliary"
 # enable this if you are going to use an external serial adapter
@@ -45,7 +45,7 @@ We could have used a different pair of pins as the TX and RX pins. There's a tab
 
 [Data Sheet]: http://www.st.com/resource/en/datasheet/stm32f303vc.pdf
 
-The serial module also has TX and RX pins. We'll have to *cross* these pins: that is connect the
+The serial module also has TX and RX pins. We'll have to _cross_ these pins: that is connect the
 microcontroller's TX pin to the serial module's RX pin and the micro's RX pin to the serial module's
 TX pin. The wiring diagram below shows all the necessary connections.
 
@@ -66,3 +66,7 @@ These are the recommended steps to connect the microcontroller and the serial mo
 - Re-launch OpenOCD and `itmdump`
 
 Everything's wired up! Let's proceed to send data back and forth.
+
+### Troubleshooting
+
+https://users.rust-lang.org/t/stm32f303-usart-gibberish/41209
