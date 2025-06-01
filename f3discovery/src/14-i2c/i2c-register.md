@@ -52,3 +52,31 @@
 2. Wait for RXNE, read from RXDR
 3. Wait for TC, set STOP
 4. Wait for STOPF, clear
+
+### ✅ Example 1: Master Writes 2 Bytes to a Slave
+
+**Scenario:**
+Master sends: Start → Address (Write) → Byte1 → Byte2 → Stop
+
+**Timeline of Communication:**
+Master: START
+Master: Send 0x50 << 1 | 0 (write)
+Slave: ACK
+Master: Send Byte1 = 0xAB
+Slave: ACK
+Master: Send Byte2 = 0xCD
+Slave: ACK
+Master: STOP
+
+### ✅ Example 2: Master Reads 1 Byte from a Slave
+
+**Scenario:**
+Master sends: Start → Address (Read) → Byte ← Slave → NACK → Stop
+
+**Timeline:**
+Master: START
+Master: Send 0x50 << 1 | 1 (read)
+Slave: ACK
+Slave: Sends Byte = 0x7F
+Master: NACK (we're done reading)
+Master: STOP
